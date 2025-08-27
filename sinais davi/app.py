@@ -4,7 +4,6 @@ import schedule
 import time
 import random
 import threading
-import os
 from telegram import Bot, InlineKeyboardMarkup, InlineKeyboardButton
 from zoneinfo import ZoneInfo
 
@@ -46,9 +45,13 @@ async def enviar_resultado_async(ativo, direcao):
     chance_win = random.randint(60, 89)
     is_win = random.randint(1, 100) <= chance_win
 
+    texto_resultado = f"Resultado do trade: {ativo} - {direcao}"
+
     if is_win:
+        await bot.send_message(chat_id=CHAT_ID, text=texto_resultado)
         await bot.send_sticker(chat_id=CHAT_ID, sticker=STICKER_WIN)
     else:
+        await bot.send_message(chat_id=CHAT_ID, text=texto_resultado)
         for sticker_loss in STICKERS_LOSS:
             await bot.send_sticker(chat_id=CHAT_ID, sticker=sticker_loss)
 
@@ -61,7 +64,8 @@ async def agendar_envio_resultado(ativo, direcao):
 async def enviar_sinal():
     agora = datetime.datetime.now(ZoneInfo("America/Sao_Paulo"))
 
-    entrada_time = agora + datetime.timedelta(minutes=4)
+    # Entrada 2 minutos à frente
+    entrada_time = agora + datetime.timedelta(minutes=2)
     gale1_time = entrada_time + datetime.timedelta(minutes=1)
     gale2_time = entrada_time + datetime.timedelta(minutes=2)
 
