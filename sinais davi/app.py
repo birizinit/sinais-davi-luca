@@ -14,8 +14,8 @@ bot = Bot(token=TOKEN)
 
 # === LISTAS DE OPÇÕES ===
 ATIVOS = [
-    "BNB/USDT", "XRP/USD", "BTC/USD",
-    "ETH/USDT", "DOGE/USD", "SOL/USD",
+    "XRP/USD", "BTC/USD",
+    "ETH/USDT", "ADA/USD", "SOL/USD",
 ]
 
 DIRECOES = ["🟢 COMPRA", "🔴 VENDA"]
@@ -114,3 +114,4 @@ schedule.every(5).minutes.do(agendar_envio)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
