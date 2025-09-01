@@ -96,7 +96,7 @@ def agendar_envio():
     hora = agora.hour
 
     # Manhã 09:00 - 11:59
-    if 9 <= hora < 12:
+    if 9 <= hora < 13:
         asyncio.run_coroutine_threadsafe(enviar_sinal(), loop)
 
     # Tarde 15:00 - 18:59
@@ -114,6 +114,7 @@ schedule.every(5).minutes.do(agendar_envio)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
 
 
 
