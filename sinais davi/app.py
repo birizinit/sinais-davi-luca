@@ -79,7 +79,7 @@ async def enviar_sinal():
     mensagem = f"""✅ *ENTRADA CONFIRMADA* ✅
 
 🌎 *Ativo:* {ativo}
-⏳ *Expiração:* M1
+⏳ *Expiração:* M2
 📊 *Direção:* {direcao}
 ⏰ *Entrada:* {entrada}
 
@@ -114,4 +114,5 @@ schedule.every(5).minutes.do(agendar_envio)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
 
