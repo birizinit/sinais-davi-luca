@@ -76,7 +76,7 @@ async def enviar_sinal():
     ativo = random.choice(ATIVOS)
     direcao = random.choice(DIRECOES)
 
-    mensagem = f"""✅ *ENTRADA CONFIRMADA* ✅
+    mensagem = f"""✅ *WALL MONEY ENTRADA CONFIRMADA* ✅
 
 🌎 *Ativo:* {ativo}
 ⏳ *Expiração:* M1
@@ -114,6 +114,7 @@ schedule.every(5).minutes.do(agendar_envio)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
 
 
 
