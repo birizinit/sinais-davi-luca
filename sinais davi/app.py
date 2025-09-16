@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 # === CONFIGURAÇÃO ===
 TOKEN = "8444691540:AAHBFYpJGQQdVSIBjgRntHW6V-EBGzkT5Tg"
-CHAT_ID = "-1002503647546"
+CHAT_ID = "-1002603880826"
 bot = Bot(token=TOKEN)
 
 # === LISTAS DE OPÇÕES ===
@@ -114,6 +114,7 @@ schedule.every(5).minutes.do(agendar_envio)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
 
 
 
